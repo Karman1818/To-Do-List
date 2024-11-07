@@ -1,11 +1,17 @@
 import { useState } from "react";
 
+type Task = {
+  taskName: string;
+  taskId: number;
+  isMade: boolean;
+};
+
 export const ToDoList = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [newTask, setNewTask] = useState("");
 
   const addNewTask = () => {
-    const newTaskObject = {
+    const newTaskObject: Task = {
       taskName: newTask,
       taskId: tasks.length + 1,
       isMade: false,
@@ -20,13 +26,14 @@ export const ToDoList = () => {
       <h3>things you have to do today:</h3>
       <ul>
         {tasks.map((task) => (
-            <li key={tasks.taskId}>{task.taskName}</li>
+          <li key={task.taskId}>{task.taskName}</li>
         ))}
       </ul>
       <input
         type="text"
         placeholder="Add new task"
         onChange={(e) => setNewTask(e.target.value)}
+        value={newTask}
       />
       <button onClick={addNewTask}>Submit</button>
     </>
