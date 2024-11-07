@@ -1,6 +1,6 @@
 # To-Do List
 
-To-Do List to prosty, ale elegancki projekt stworzony w React. Aplikacja umożliwia dodawanie, edytowanie oraz usuwanie zadań z listy rzeczy do zrobienia. Projekt został zaprojektowany z myślą o prostocie i łatwości użytkowania, stanowiąc doskonały przykład do umieszczenia w CV jako przykład umiejętności w React.
+To-Do List to prosty projekt stworzony w React, który pozwala na tworzenie, edytowanie i usuwanie zadań. Aplikacja ma intuicyjny interfejs, który jest łatwy w użyciu i estetyczny.
 
 ## Funkcje
 - Dodawanie nowych zadań
@@ -10,8 +10,6 @@ To-Do List to prosty, ale elegancki projekt stworzony w React. Aplikacja umożli
 
 ## Technologie
 - React
-- CSS (lub Styled Components, zależnie od użytej technologii)
+- CSS
 
-## Instalacja
 
-1. Sklonuj repozytorium:
