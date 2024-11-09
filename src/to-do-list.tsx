@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./to-do-list.css";
+
 
 type Task = {
   taskName: string;
@@ -45,28 +47,30 @@ export const ToDoList = () => {
 
   return (
     <>
-      <h1>To-Do-List</h1>
-      <h3>things you have to do today:</h3>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.taskId}>
-            {task.taskName}
-            <input
-              type="checkbox"
-              onClick={() => isTaskChecked(task.taskId)}
-            ></input>
-            <button onClick={() => deleteTask(task.taskId)}>Delete</button>
-            <button onClick={() => editTask(task.taskId)}>Edit</button>
-          </li>
-        ))}
-      </ul>
-      <input
-        type="text"
-        placeholder="Add new task"
-        onChange={(e) => setNewTask(e.target.value)}
-        value={newTask}
-      />
-      <button onClick={addNewTask}>Submit</button>
+      <div className="container">
+        <h1>To-Do-List</h1>
+        <h3>things you have to do today:</h3>
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.taskId}>
+              {task.taskName}
+              <input
+                type="checkbox"
+                onClick={() => isTaskChecked(task.taskId)}
+              ></input>
+              <button onClick={() => editTask(task.taskId)}>Edit</button>
+              <button onClick={() => deleteTask(task.taskId)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+        <input
+          type="text"
+          placeholder="Add new task"
+          onChange={(e) => setNewTask(e.target.value)}
+          value={newTask}
+        />
+        <button onClick={addNewTask}>Submit</button>
+      </div>
     </>
   );
 };
