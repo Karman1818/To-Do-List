@@ -14,10 +14,33 @@ export const ToDoList = () => {
     const newTaskObject: Task = {
       taskName: newTask,
       taskId: tasks.length + 1,
-      isMade: false,
+      isMade: true,
     };
     setTasks((prevTasks) => [...prevTasks, newTaskObject]);
     setNewTask("");
+  };
+
+  const deleteTask = (id: number) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.taskId != id));
+  };
+
+  const isTaskChecked = (id: number) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.taskId === id ? { ...task, isMade: !task.isMade } : task
+      )
+    );
+  };
+
+  const editTask = (id: number) => {
+    const name: string | null = prompt("What task do you want instead");
+    if (name !== null) {
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task.taskId === id ? { ...task, taskName: name } : task
+        )
+      );
+    }
   };
 
   return (
@@ -26,7 +49,15 @@ export const ToDoList = () => {
       <h3>things you have to do today:</h3>
       <ul>
         {tasks.map((task) => (
-          <li key={task.taskId}>{task.taskName}</li>
+          <li key={task.taskId}>
+            {task.taskName}
+            <input
+              type="checkbox"
+              onClick={() => isTaskChecked(task.taskId)}
+            ></input>
+            <button onClick={() => deleteTask(task.taskId)}>Delete</button>
+            <button onClick={() => editTask(task.taskId)}>Edit</button>
+          </li>
         ))}
       </ul>
       <input
